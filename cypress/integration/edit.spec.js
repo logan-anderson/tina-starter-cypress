@@ -8,7 +8,12 @@ describe("Edit mode", () => {
   });
   it("add content to the home page", () => {
     cy.visit("http://localhost:3000/");
-    cy.get("#__next > div:nth-child(1) > a").click();
+    // Make sure the edit button is present
+    cy.get("#__next > div:nth-child(1) > a").should("exist");
+    // Redirects do not seem to work in Electron. So this is a work around
+    cy.visit("/admin");
+    cy.wait(2000);
+    cy.visit("/");
     cy.get(`[aria-label="toggles cms sidebar"]`, { timeout: 5000 }).click();
     cy.get(".edit-page--list-parent > :nth-child(1)").click();
     cy.get(":nth-child(1) > .BaseTextField-sc-1hz3p6r").clear();
