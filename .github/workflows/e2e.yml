@@ -2,7 +2,10 @@ name: e2e Tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node12.16.1-chrome80-ff73
+      options: --user 1001
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,7 +18,7 @@ jobs:
           wait-on: 'http://localhost:3000'
           # wait for 1 minute for the server to respond
           wait-on-timeout: 60
-          browser: chrome
+          browser: firefox
           headless: true
       # after the test run completes
       # store videos and any screenshots
