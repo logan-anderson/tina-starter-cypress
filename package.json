@@ -6,6 +6,7 @@
     "dev": "yarn tinacms server:start -c \"next dev\"",
     "build": "yarn tinacms server:start -c \"next build\"",
     "start": "yarn tinacms server:start -c \"next start\"",
+    "build:start": "yarn build && yarn start",
     "export": "yarn build && next export",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
