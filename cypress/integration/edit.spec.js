@@ -10,10 +10,7 @@ describe("Edit mode", () => {
   });
   it("add content to the home page", () => {
     cy.visit("http://localhost:3000/");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get(
-      '[style="position:fixed;bottom:56px;left:0px;z-index:200"] > a'
-    ).click();
+    cy.get("#__next > div:nth-child(1) > a").click();
     cy.get(`[aria-label="toggles cms sidebar"]`).click();
     cy.get(".edit-page--list-parent > :nth-child(1)").click();
     cy.get(":nth-child(1) > .BaseTextField-sc-1hz3p6r").clear();
