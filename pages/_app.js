@@ -6,6 +6,7 @@ const TinaCMS = dynamic(() => import("tinacms"), { ssr: false });
 import { TinaCloudCloudinaryMediaStore } from "next-tinacms-cloudinary";
 
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
+console.log({ env: process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT });
 const NEXT_PUBLIC_USE_LOCAL_CLIENT =
   process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT || 1;
 
