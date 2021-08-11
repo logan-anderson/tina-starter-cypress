@@ -1,17 +1,15 @@
+/// <reference types="cypress" />
+
 describe("Edit mode", () => {
   it("should enter edit mode", () => {
     // Start from the index page
     cy.visit("http://localhost:3000/");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get(
-      '[style="position:fixed;bottom:56px;left:0px;z-index:200"] > a'
-    ).click();
-    /* ==== End Cypress Studio ==== */
+    cy.get("#__next > div:nth-child(1) > a").click();
   });
   it("add content to the home page", () => {
     cy.visit("http://localhost:3000/");
     cy.get("#__next > div:nth-child(1) > a").click();
-    cy.get(`[aria-label="toggles cms sidebar"]`).click();
+    cy.get(`[aria-label="toggles cms sidebar"]`, { timeout: 5000 }).click();
     cy.get(".edit-page--list-parent > :nth-child(1)").click();
     cy.get(":nth-child(1) > .BaseTextField-sc-1hz3p6r").clear();
     cy.get(":nth-child(1) > .BaseTextField-sc-1hz3p6r").type("This is an edit");
