@@ -15,4 +15,4 @@ jobs:
           wait-on-timeout: 60
           browser: chrome
           headless: true
-          env: NEXT_PUBLIC_USE_LOCAL_CLIENT=1,
+          env: NEXT_PUBLIC_USE_LOCAL_CLIENT=1
