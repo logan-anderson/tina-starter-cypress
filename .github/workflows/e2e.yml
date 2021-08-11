@@ -2,16 +2,14 @@ name: e2e Tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
-      options: --user 1001
+    runs-on: ubuntu-20.04
+    name: E2E on Chrome
     steps:
       - uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          browser: firefox
+          browser: chrome
           env: NEXT_PUBLIC_USE_LOCAL_CLIENT=1
           build: yarn build
           start: yarn start
