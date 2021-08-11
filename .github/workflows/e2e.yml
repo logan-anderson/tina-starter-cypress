@@ -7,19 +7,17 @@ jobs:
       image: cypress/browsers:node12.16.1-chrome80-ff73
       options: --user 1001
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          browser: firefox
           env: NEXT_PUBLIC_USE_LOCAL_CLIENT=1
           build: yarn build
           start: yarn start
           wait-on: 'http://localhost:3000'
           # wait for 1 minute for the server to respond
           wait-on-timeout: 60
-          browser: firefox
-          headless: true
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
